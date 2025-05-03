@@ -3,12 +3,8 @@
 C'est une application de blog simple ou je presente mes produits construits avec Flask, un framework web Python. L'application a les fonctionnalites suivantes :
 
 - Inscription et connexion d'utilisateurs
-- Pages de profil d'utilisateur
 - listing, Creation et suppression de posts de produit
 - Authentification et autorisation d'utilisateurs
-- Hachage et verification de mot de passe
-- Telechargement de fichiers pour les images de profil d'utilisateurs
-- Modelisation de base de donnees avec SQLAlchemy
 
 L'application est construite avec les technologies suivantes :
 

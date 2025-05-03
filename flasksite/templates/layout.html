@@ -27,7 +27,6 @@
                   <div class="navbar-nav">
                   {% if current_user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Logged in</a>
-                    <a id="account" class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
                     <a id="logout" class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                   {% else %}
                     <a id="login" class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>

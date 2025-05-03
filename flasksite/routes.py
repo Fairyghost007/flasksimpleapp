@@ -145,32 +145,3 @@ def save_raw_picture(form_picture):
     form_picture.save(picture_path)
 
     return picture_fn
-
-
-@app.route("/account", methods=['GET', 'POST'])
-@login_required
-def account():
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_raw_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        try:
-            db.session.commit()
-            flash('Your account has been updated!', 'success')
-            return redirect(url_for('account'))
-        except Exception as e:
-            db.session.rollback()
-            app.logger.critical(f'Error while updating your account. {current_user}')
-            app.logger.exception(e)
-            flash('There was an error while updating your account. Try again later.', 'danger')
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    return render_template('account.html',
-                           title='Account',
-                           form=form)
-
-
